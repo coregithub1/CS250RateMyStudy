@@ -19,7 +19,7 @@ async function mockSupabase(page, { failInsert = false, failLoad = false } = {})
       user: { id: '11111111-1111-4111-8111-111111111111', aud: 'authenticated', role: 'authenticated', is_anonymous: true },
     } });
     if (url.pathname === '/rest/v1/study_spots') {
-      if (failLoad) return route.fulfill({ status: 503, json: { message: 'Unavailable' } });
+      if (failLoad) return route.fulfill({ status: 400, json: { message: 'Test load failure' } });
       return route.fulfill({ json: { id: 'love-library', name: 'Love Library', image_url: '/test-photo.svg', image_alt: 'Exterior of Love Library at San Diego State University' } });
     }
     if (url.pathname === '/rest/v1/reviews') {
@@ -68,7 +68,7 @@ test('REQ-3: a failed save preserves the comment and does not claim success', as
   await page.getByLabel('Your rating').selectOption('3');
   await page.getByLabel('Your comment').fill('Keep this draft.');
   await page.getByRole('button', { name: 'Submit review' }).click();
-  await expect(page.getByRole('alert')).toContainText('could not confirm');
+  await expect(page.getByRole('main').getByRole('alert')).toContainText('could not confirm');
   await expect(page.getByLabel('Your comment')).toHaveValue('Keep this draft.');
   await expect(page.getByRole('listitem')).toHaveCount(0);
 });
@@ -79,14 +79,14 @@ test('REQ-3: whitespace-only comments are rejected', async ({ page }) => {
   await page.getByLabel('Your rating').selectOption('5');
   await page.getByLabel('Your comment').fill('   ');
   await page.getByRole('button', { name: 'Submit review' }).click();
-  await expect(page.getByRole('alert')).toContainText('Choose a rating');
+  await expect(page.getByRole('main').getByRole('alert')).toContainText('Choose a rating');
   expect(saved).toHaveLength(0);
 });
 
 test('a load failure gives a retry action', async ({ page }) => {
   await mockSupabase(page, { failLoad: true });
   await page.goto('/');
-  await expect(page.getByRole('alert')).toContainText('could not load');
+  await expect(page.getByRole('main').getByRole('alert')).toContainText('could not load');
   await expect(page.getByRole('button', { name: 'Try again' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Submit review' })).toHaveCount(0);
 });
