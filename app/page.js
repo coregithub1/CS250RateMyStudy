@@ -92,7 +92,7 @@ export default function StudySpotPage() {
       {loadError && <div className="notice" role="alert"><p>{loadError}</p><button type="button" onClick={loadSpot}>Try again</button></div>}
       {!loading && !loadError && spot && <>
         <figure>
-          {!imageFailed && imageSrc ? <img src={imageSrc} alt={spot.image_alt} width="800" height="600" onError={() => setImageFailed(true)} /> : <p className="notice">The study spot photo is unavailable.</p>}
+          {!imageFailed && imageSrc ? <img src={imageSrc} alt="Exterior of Love Library" width="800" height="600" onError={() => setImageFailed(true)} /> : <p className="notice">The study spot photo is unavailable.</p>}
           <figcaption>Love Library, SDSU. Photo: Phil Konstantin · <a href="https://commons.wikimedia.org/wiki/File:LoveLibrarySDSUByPhilKonstantin.jpg">Photo source</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> (display cropped)</figcaption>
         </figure>
         <div className="columns">
