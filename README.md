@@ -21,6 +21,15 @@ The current version has one study spot page for Love Library:
 
 Search, rankings, and availability are planned for later sprints.
 
+## Requirement Traceability
+
+## REQ-1: Display a study spot picture
+- The system displays a picture of the selected study spot
+- When a user opens the Love Library page, a picture of Love Library will be displayed
+
+## REQ-3: Submit a rating and a comment
+- The system allows users to rate the study spot 1-5 stars and are able to write comments
+- After the user submits a rating and comment, it will be visible to the public after it is refreshed
 ## Tech Stack
 
 - **Frontend:** Next.js, React, JavaScript/JSX, and CSS
