@@ -1,7 +1,5 @@
 # RateMyStudy UML Naming Contract
 
-
-
 | Class | Owner | Used By |
 |---|---|---|
 | Student | Nhan Nguyen | Nhan, Hamza, Karan, Sidharth |
