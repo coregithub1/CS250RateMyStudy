@@ -26,7 +26,7 @@ Search, rankings, and availability are planned for later sprints.
 - **Frontend:** Next.js, React, JavaScript/JSX, and CSS
 - **Backend and database:** Supabase
 - **Authentication:** Supabase anonymous sign-ins
-- **Testing:** Built in Test Cases
+- **Testing:** Built in test cases
 - **Continuous integration:** GitHub Actions
 
 ## Run Locally
