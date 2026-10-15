@@ -6,6 +6,6 @@
 |---|---|---|
 | Student | Nhan Nguyen | Nhan, Hamza, Karan, Sidharth |
 | StudySpot | Sidharth Nair | Nhan, Hamza, Karan, Sidharth |
-| Comment | Hamza Akbari | Hamza, Nhan |
+| Comment | Hamza Akbari | Hamza, Nhan, Sidharth |
 | StudySpotPage | Karan Hooda | Karan, Sidharth |
-| HomePageController | Team | Karan |
+| HomePageController | Team | Karan|
