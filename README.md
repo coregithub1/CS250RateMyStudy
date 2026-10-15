@@ -11,7 +11,7 @@ RateMyStudy helps SDSU students find study spots and share their experiences thr
 
 ## Current Status
 
-The current version has a home page for 2 study spots:
+The current version has one study spot page for Love Library:
 
 - **REQ-1:** Display a picture of the study spot.
 - **REQ-3:** Submit a rating from 1–5 and a written comment.
