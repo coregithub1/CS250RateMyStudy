@@ -1,23 +1,3 @@
-Instructions
-You are not fixing anything today. You are reading. Your team will map the inherited system as it actually exists, not as the handoff docs say it exists.
-Time: 40 minutes.
-Goal: Trace one user action end to end and draw the as-built architecture.
-Submit: Commit this map to your repo as docs/SYSTEM_MAP.md with the diagram as an image and submit a photo of the paper version.
-Rule: Every claim needs proof in the code. "Probably somewhere in utils" does not count.
-AI use: AI may explain unfamiliar syntax. The diagram and trace must come from your own reading of the code.
-Time
-Phase
-0 to 5 min
-Pick one user action that touches the backend and database
-5 to 15 min
-Draw the architecture diagram
-15 to 30 min
-Tracers trace their halves. Analyst and Architect start Part 4.
-30 to 35 min
-Cross-check: each person explains one section they did not write to a teammate.
-35 to 40 min
-Clean up and submit
-
 Team and roles
 Team name: Lost&Founders
 Inherited project: RateMyStudy
@@ -51,7 +31,7 @@ User action we will trace: (for example, "create an account" or "submit a post".
 The system lets an anonymous user submit a comment review to a study spot, with a rating from 1 to 5, so that other users can see their review listed among other reviews.
 User action we will trace: User submitted a review. The user logs into the website, fills in a review, and submits it.
 
-Part 2: As-built architecture diagram
+## Part 2: As-built architecture diagram
 Draw boxes and arrows for every major component. Draw only what the code proves exists. Label each arrow with what travels along it (HTTP request, SQL query, event, file).
 Include any of these that exist:
 Client (web, mobile, CLI)
@@ -63,7 +43,7 @@ Insert diagram image here.
 
 
 
-Part 3: Trace the click
+## Part 3: Trace the click
 Follow your one user action from the button click to the database and back. Minimum five hops. Every row needs a real file path and function name. Add rows as needed.
 Example (create a user profile). Rows 1 and 2 belong to the Frontend Tracer. Rows 3 to 7 belong to the Backend Tracer. They meet at POST /api/profiles.
 Step
@@ -159,7 +139,8 @@ SUPABASE HIDES FORMAT BUT SUCCESS -> 200
 app/page.js -> submitReview()
 New comment -> refreshes comment list on app/page.js
 
-Part 4: Reality check and open questions
+## Part 4: Reality check and open questions
+
 Open the handoff UML and compare it to your diagram. Circle every mismatch on your diagram.
 What the handoff docs got wrong or left out:
 Handoff UML shows classes that are not used; in the actual code, everything is within StudySpotPage
@@ -171,3 +152,22 @@ Design: Are we supposed to make our own file upload system to Supabase storage?
 Design: Is the Supabase Storage read/writes setup for us to build into?
 
 Intent: Does a user own a study spot? Are they registering a single spot to exist? If so, are we supposed to rewrite the current logic of what is shown as a study spot?
+
+
+## Part 5: Candidate Requirements
+
+| ID | Candidate requirement | Type | Source | Status | Acceptance criterion |
+|---|---|---|---|---|---|
+| CR-1 | The system shall allow verified users to create study spots | Functional | Handoff document states a user creates study spots but the current one is hard coded and the create option doesn’t exist yet | Unconfirmed | Give a valid user session, not anonymous, the capabilities of adding photos of a place and from their it creates the study spot |
+| CR-2 | The system shall allow anonymous/verfied users the ability to submit reviews | Functional | page.js -> SubmitReview() | Confirmed | The form submission will upload to the database on a button click |
+| CR-3 | The system shall force a character limit | Functional | Reviews table, column comment has a varchar max of 1000 | Confirmed | A user cannot bypass the 1000 character limit via frontend limits and as a extra check backend limits |
+| CR-4 | The system will force an anonymous session when no user is found | Functional | page.js -> SubmitReview() | Confirmed | If no session is found, an anonymous session is always forced so a “user” always exist for the review creation |
+| CR-5 | The system shall allow file uploads to Supabase Storage for image handling | Functional | Handoff document shows the table having image_url but no direct capability to actually using this by user access | Unconfirmed | If a non-anonymous user session exist, the user will be able to upload a file 1-2MB sized directly to Supabase storage where image_url will be the value that access that image inside of a bucket |
+
+## Part 6: Unit test cases
+
+| ID Requirement | Kind | Input | Expected Output | Predicted Result Today |
+|---|---|---|---|---|
+| TC1-CR-1 | Negative | {name : “”} | {error: “Name left blank”} | Pass |
+| TC-2 CR-3 | Negative | {Comment : (longer than 1000 chars) | {error: “Comment longer than 1000 chars} | Pass |
+| TC-2 CR-3 | Boundary, negative | {Comment : “”} | {error: “Comment left blank”} | Pass |
