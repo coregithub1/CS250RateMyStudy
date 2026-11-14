@@ -7,7 +7,7 @@
 
 | Area of the system | Owner | ID prefix |
 |---|---|---|
-| [example: Accounts and login] | [name] | [initials, like MG] |
+| [Rs] | [Adam] | [AM] |
 | | | |
 | | | |
 | | | |
@@ -23,34 +23,28 @@ RULES
 
 ---
 
-## Section: [Your Area] ([Your Name])
+## Section: Review saving, Review Ordering, Anonymous Submissions, and Rating Validation, ([Adam Mohamed])
 
 ### Stakeholder Goals
 
 | ID | Stakeholder | Goal |
 |---|---|---|
-| G-XX-01 | | |
+| G-AM-01 | SDSU Students | Any user will be allowed to see persisted reviews of study spots around the SDSU campus to help them mke decisions on where to study.|
 
 ### Functional Requirements
 
 | ID | Requirement | Status | From Part 5 |
 |---|---|---|---|
-| REQ-XX-01 | | | |
-| REQ-XX-02 | | | |
-| REQ-XX-03 | | | |
+| REQ-AM-1 | The system shall allow all reviews to be persisted across sessions using Supabase so any refreshes, new tabs, and other users will always see the correct information.| Confirmed | CR2 |
+| REQ-AM-2 | The system shall allow users with no exisiting account be able to submit reviews anonymously on any study spot. This will be done by creating an anonymous session for them.| Confirmed |CR-4: System will allow users/anonymous users the ability to submit reviews |
+| REQ-AM-3 | The system shall reject any rating that isnt betwee 1 and 5 inclusive, including when values are manipulated using DevTools | Confirmed | New |
+| REQ-AM-4 | The system shall display reviews in a newest-to-oldest fashion, ensuring the newest ones are always at the top, | Confirmed | New |
 
 ### Non-Functional Requirements
 
 | ID | Requirement | Status | From Part 5 |
 |---|---|---|---|
-| NFR-XX-01 | | | |
-
-### Example of a Good Rewrite
-
-| ID | Requirement | Status | From Part 5 |
-|---|---|---|---|
-| REQ-MG-01 | The system shall reject a profile bio longer than 280 characters with the error "Bio must be 280 characters or fewer." | Suspected bug | CR-3 (Unconfirmed): The system shall limit the bio to 280 characters. |
-| NFR-MG-01 | The profile page loads in under 2 seconds with 100 profiles in the database. | Confirmed | New |
+| NFR-AM-1 | The UI will display an error message when it detects a rating outside the given range | Confirmed | New |
 
 ---
 
