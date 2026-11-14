@@ -1,6 +1,6 @@
 # Traceability Matrix
 
-**Team number:** [XX]
+**Team number:** [3]
 **Filled in by (captain):** [name]
 
 Fill this in **after** everyone's work is merged. One row per requirement.
@@ -9,11 +9,10 @@ Fill this in **after** everyone's work is merged. One row per requirement.
 
 | Requirement ID | From Part 5 | Owner | Test case IDs | Result | GitHub Issue # |
 |---|---|---|---|---|---|
-| REQ-MG-01 *(example)* | CR-3 | Maria | MG-01, MG-02 | 1 Pass, 1 Fail | #12 |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
+| REQ-AM-1 | CR-2 | Adam Mohamed | AM-1 | Pass | N/A |
+| REQ-AM-2 | CR-4 | Adam Mohamed | AM-2 | Pass | N/A |
+| REQ-AM-3 | New | Adam Mohamed | AM-3 | Pass | N/A |
+| REQ-AM-4 | New | Adam Mohamed | AM-4 | Pass | N/A |
 | | | | | | |
 | | | | | | |
 | | | | | | |
