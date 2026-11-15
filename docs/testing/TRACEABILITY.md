@@ -38,8 +38,8 @@ Put a Test ID next to each type. Team minimum: all 7.
 | Test type | Test ID |
 |---|---|
 | Unit | |
-| Integration | |
-| System (E2E) | |
+| Integration | TC-AM-1 |
+| System (E2E) | TC-AM-1 |
 | Acceptance | TC-JG-01 |
 | Boundary Value | TC-JG-03 |
 | Negative | TC-JG-02 |
