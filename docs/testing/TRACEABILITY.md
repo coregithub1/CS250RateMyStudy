@@ -13,10 +13,10 @@ Fill this in **after** everyone's work is merged. One row per requirement.
 | REQ-AM-2 | CR-4 | Adam Mohamed | AM-2 | Pass | N/A |
 | REQ-AM-3 | New | Adam Mohamed | AM-3 | Pass | N/A |
 | REQ-AM-4 | New | Adam Mohamed | AM-4 | Pass | N/A |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
+| REQ-JG-01 | CR-3 | Joshua Groh | TC-JG-01 | Pass | N/A |
+| REQ-JG-02 | New | Joshua Groh | TC-JG-02 | Pass | N/A |
+| REQ-JG-03 | New | Joshua Groh | TC-JG-03 | Pass | N/A |
+| REQ-JG-04 | New | Joshua Groh | TC-JG-04 | Fail | #80 |
 | | | | | | |
 | | | | | | |
 | | | | | | |
@@ -40,10 +40,10 @@ Put a Test ID next to each type. Team minimum: all 7.
 | Unit | |
 | Integration | |
 | System (E2E) | |
-| Acceptance | |
-| Boundary Value | |
-| Negative | |
-| Security | |
+| Acceptance | TC-JG-01 |
+| Boundary Value | TC-JG-03 |
+| Negative | TC-JG-02 |
+| Security | TC-JG-04 |
 
 ## Validation Findings
 

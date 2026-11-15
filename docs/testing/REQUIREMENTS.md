@@ -8,7 +8,7 @@
 | Area of the system | Owner | ID prefix |
 |---|---|---|
 | [Rs] | [Adam] | [AM] |
-| User Submissions (Comments) | Joshua Groh | JG |
+| [US] | [Joshua] | [JG] |
 | | | |
 | | | |
 
@@ -48,7 +48,7 @@ RULES
 
 ---
 
-## Section: User Submissions (Ratings, comments) (Joshua Groh)
+## Section: User Submissions (Comments) (Joshua Groh)
 
 ### Stakeholder Goals
 
@@ -60,19 +60,19 @@ RULES
 
 | ID | Requirement | Status | From Part 5 |
 |---|---|---|---|
-| REQ-JG-01 | The system shall force a 1000 character limit for comments, causing an error when attempting to submit a larger comment | Confirmed | CR-3 |
+| REQ-JG-01 | The system shall force a 1000 character limit for comments, not allowing submission when attempting to write a larger comment. | Confirmed | CR-3 |
 
-| REQ-JG-02 | The system will reject empty comments, causing an error when attempting to submit one | Confirmed | New |
+| REQ-JG-02 | The system will reject empty comments, not allowing submission when attempting to submit one. | Confirmed | New |
 
-| REQ-JG-03 | Once a comment is posted, it will be available for all to read | Confirmed | New |
+| REQ-JG-03 | Once a comment is posted, it will be available for all to read. | Confirmed | New |
 
-| REQ-JG-04 | The system forces a comment limit of one for each individual anonymous user session | Suspected | New |
+| REQ-JG-04 | The system forces a comment limit of one for each individual anonymous user session. Any additional comment will be blocked from submission. | Suspected | New |
 
 ### Non-Functional Requirements
 
 | ID | Requirement | Status | From Part 5 |
 |---|---|---|---|
-| NFR-JG-01 | Comments is posted in less than 5 seconds  | Confirmed | New |
+| NFR-JG-01 | Comments are posted in less than 5 seconds  | Confirmed | New |
 
 ---
 
