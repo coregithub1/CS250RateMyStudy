@@ -6,7 +6,7 @@
 
 ---
 
-**Test ID: AM-1**
+**Test ID: TC-AM-1**
 **From Part 6:** New, REQ-AM-1
 **Written by: Adam Mohamed**
 **Title:** Reviews will always be persisted across sessions
@@ -29,7 +29,7 @@
 
 ---
 
-**Test ID:** AM-2
+**Test ID:** TC-AM-2
 **From Part 6:** new, REQ-AM-2
 **Written by:** Adam Mohamed
 **Title:** Anonymous users can post reviews without an account
@@ -52,7 +52,7 @@
 
 ---
 
-**Test ID:** AM-3
+**Test ID:** TC-AM-3
 **From Part 6:** New, REQ-AM-3
 **Written by:** Adam Mohamed
 **Title:** Rejecting reviews outside of 1-5 inclusive
@@ -75,7 +75,7 @@
 
 ---
 
-**Test ID:** AM-4
+**Test ID:** TC-AM-4
 **From Part 6:** New, REQ-4
 **Written by:** Adam Mohamed
 **Title:** Reviews will always be sorted in descending my timestamp
