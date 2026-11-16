@@ -1,14 +1,14 @@
 # Testable Requirements: [Project Name]
 
-**Team number:** [XX]
-**Inherited from:** Team [XX]
+**Team number:** [3]
+**Inherited from:** Team [2]
 
 ## Who Owns What
 
 | Area of the system | Owner | ID prefix |
 |---|---|---|
-| [Rs] | [Adam] | [AM] |
-| [US] | [Joshua] | [JG] |
+| [Review saving, Review Ordering, Anonymous Submissions, and Rating Validation] | [Adam] | [AM] |
+| [User Submissions] | [Joshua] | [JG] |
 | | | |
 | | | |
 

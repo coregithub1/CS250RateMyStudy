@@ -1,7 +1,7 @@
 # Traceability Matrix
 
 **Team number:** [3]
-**Filled in by (captain):** [name]
+**Filled in by (captain):** [Adam & Josh]
 
 Fill this in **after** everyone's work is merged. One row per requirement.
 
@@ -28,8 +28,13 @@ Fill this in **after** everyone's work is merged. One row per requirement.
 ## Gaps
 
 List any requirement with no test, any test with no requirement, and any Part 5 requirement or Part 6 test that nobody brought over. Write "None" if there are none.
+### As of Nov 15th midnight
 
--
+- **CR-1**: The current code only displays a hardcoded study spot with a hardcoded image, nothing was actually inserted by users just yet besides reviews.
+
+- **CR-5**: The current code shows that the database tabel holds a column for study_spots image urls which would point to url in a supabase bucket but its not possible in this current architecture as the buckets are not setup.
+
+- **Test cases**: 1 of part 6 test cases where not brought while the other 2 where.
 
 ## Test Type Coverage
 
@@ -39,7 +44,7 @@ Put a Test ID next to each type. Team minimum: all 7.
 |---|---|
 | Unit | |
 | Integration | TC-AM-1 |
-| System (E2E) | TC-AM-1 |
+| System (E2E) | TC-AM-4 |
 | Acceptance | TC-JG-01 |
 | Boundary Value | TC-JG-03 |
 | Negative | TC-JG-02 |
@@ -61,16 +66,16 @@ A Validation finding means the system does what the requirement says, but the re
 
 | | Count |
 |---|---|
-| Part 5 requirements carried over | |
-| New requirements added | |
-| Part 6 tests upgraded (out of 3) | |
+| Part 5 requirements carried over | 3 |
+| New requirements added | 5 |
+| Part 6 tests upgraded (out of 3) | 2 |
 | Total requirements | |
-| Total test cases | |
-| Passed | |
-| Failed | |
-| Issues opened | |
-| Critical issues | |
+| Total test cases | 8 |
+| Passed | 7 |
+| Failed | 1 |
+| Issues opened | 1 |
+| Critical issues | 0 |
 
 **In one sentence, would you ship this system today? Why or why not?**
-
+No, it's not flushed out to be completely usable by indivisuals.
 >
