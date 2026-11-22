@@ -5,6 +5,8 @@ import { getSupabase } from '../lib/supabase';
 
 const SPOT_ID = 'love-library';
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const MAX_REVIEWS_PER_USER = 2;
+const REVIEW_COUNT_KEY = `reviewCount-${SPOT_ID}`;
 
 export default function StudySpotPage() {
   const [spot, setSpot] = useState(null);
@@ -17,6 +19,7 @@ export default function StudySpotPage() {
   const [comment, setComment] = useState<string>('');
   const [saving, setSaving] = useState(false);
   const [imageFailed, setImageFailed] = useState(false);
+  const [reviewCount, setReviewCount] = useState(0);
 
   async function loadSpot() {
     setLoading(true);
@@ -41,6 +44,11 @@ export default function StudySpotPage() {
 
   useEffect(() => { loadSpot(); }, []);
 
+  useEffect(() => {
+    const storedCount = Number(localStorage.getItem(REVIEW_COUNT_KEY)) || 0;
+    setReviewCount(storedCount);
+  }, []);
+
   async function submitReview(event) {
     event.preventDefault();
     if (saving) return;
@@ -56,6 +64,12 @@ export default function StudySpotPage() {
       setSubmitError('Choose a rating and write a comment of 1–1,000 characters.');
       return;
     }
+
+    if (reviewCount >= MAX_REVIEWS_PER_USER) {
+      setSubmitError(`You can only submit ${MAX_REVIEWS_PER_USER} reviews for this study spot.`);
+      return;
+    } 
+
     setSaving(true);
     try {
       const db = getSupabase();
@@ -74,6 +88,9 @@ export default function StudySpotPage() {
       }).select('id,rating,comment,created_at').single();
       if (error) throw new Error('We could not confirm your review was saved. Refresh to check before trying again.');
       setReviews(previous => [data, ...previous]);
+      const newCount = reviewCount + 1;
+      setReviewCount(newCount);
+      localStorage.setItem(REVIEW_COUNT_KEY, String(newCount));
       setRating('');
       setComment('');
       setSuccess('Your review has been saved.');
@@ -85,6 +102,8 @@ export default function StudySpotPage() {
   }
 
   const imageSrc = spot?.image_url?.startsWith('/') ? `${basePath}${spot.image_url}` : spot?.image_url;
+
+  const reviewLimitReached = reviewCount >= MAX_REVIEWS_PER_USER;
 
   return <>
     <header><div className="header-inner"><strong>RateMy<span>Study</span></strong><span>SDSU</span></div></header>
@@ -103,22 +122,32 @@ export default function StudySpotPage() {
           <section className="panel" aria-labelledby="review-form-title">
             <h2 id="review-form-title">Leave a review</h2>
             <p>How was studying here?</p>
+
+            {reviewLimitReached && (
+              <p className="notice">
+                You have reached the maximum number of reviews for this study spot.
+              </p>
+            )}
+
             <form onSubmit={submitReview}>
-              <fieldset disabled={saving}>
+              <fieldset disabled={saving || reviewLimitReached}>
                 <label htmlFor="rating">Your rating</label>
-                <select id="rating" value={rating} onChange={event => setRating(event.target.value)} required>
-                  <option value="">Select a rating</option>
-                  {[1,2,3,4,5].map(value => <option key={value} value={value}>{value} / 5{value === 1 ? ' — Poor' : value === 5 ? ' — Excellent' : ''}</option>)}
-                </select>
+                  <select id="rating" value={rating} onChange={event => setRating(event.target.value)} required>
+                    <option value="">Select a rating</option>
+                    {[1,2,3,4,5].map(value => <option key={value} value={value}>{value} / 5{value === 1 ? ' — Poor' : value === 5 ? ' — Excellent' : ''}</option>)}
+                  </select>
                 <label htmlFor="comment">Your comment</label>
                 <textarea id="comment" value={comment} onChange={event => setComment(event.target.value)} required maxLength={1000} rows={5} placeholder="What should other students know?" aria-describedby="comment-help" />
                 <p id="comment-help" className="hint">{comment.length}/1,000 characters · Reviews are public.</p>
-                <button type="submit">{saving ? 'Saving…' : 'Submit review'}</button>
+                <button type="submit" disabled={saving || reviewLimitReached}>
+                  {reviewLimitReached ? 'Review limit reached' : saving ? 'Saving…' : 'Submit review'}
+                </button>
               </fieldset>
               {submitError && <p role="alert" className="error">{submitError}</p>}
               {success && <p role="status" className="success">{success}</p>}
             </form>
           </section>
+
           <section className="panel" aria-labelledby="reviews-title">
             <h2 id="reviews-title">Student reviews <span className="count">({reviews.length})</span></h2>
             {reviews.length === 0 ? <p>No reviews yet. Be the first to share your experience.</p> : <ul className="reviews">
