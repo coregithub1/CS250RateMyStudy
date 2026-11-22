@@ -135,9 +135,12 @@ export default function StudySpotPage() {
                 <label htmlFor="comment">Your comment</label>
                 <textarea id="comment" value={comment} onChange={event => setComment(event.target.value)} required maxLength={1000} rows={5} placeholder="What should other students know?" aria-describedby="comment-help" />
                 <p id="comment-help" className="hint">{comment.length}/1,000 characters · Reviews are public.</p>
+                
+                {/* Button disabled if saving or review limit reached */}
                 <button type="submit" disabled={saving || reviewLimitReached}>
                   {reviewLimitReached ? 'Review limit reached' : saving ? 'Saving…' : 'Submit review'}
                 </button>
+
               </fieldset>
               {submitError && <p role="alert" className="error">{submitError}</p>}
               {success && <p role="status" className="success">{success}</p>}
