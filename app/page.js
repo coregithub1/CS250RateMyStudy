@@ -16,7 +16,7 @@ export default function StudySpotPage() {
   const [submitError, setSubmitError] = useState('');
   const [success, setSuccess] = useState('');
   const [rating, setRating] = useState('');
-  const [comment, setComment] = useState<string>('');
+  const [comment, setComment] = useState('');
   const [saving, setSaving] = useState(false);
   const [imageFailed, setImageFailed] = useState(false);
   const [reviewCount, setReviewCount] = useState(0);
