@@ -14,7 +14,7 @@ export default function StudySpotPage() {
   const [submitError, setSubmitError] = useState('');
   const [success, setSuccess] = useState('');
   const [rating, setRating] = useState('');
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = useState<string>('');
   const [saving, setSaving] = useState(false);
   const [imageFailed, setImageFailed] = useState(false);
 
@@ -47,7 +47,11 @@ export default function StudySpotPage() {
     setSuccess('');
     setSubmitError('');
     const score = Number(rating);
-    const text = comment.trim();
+    // The amount of white space UTFs
+    const regex = /[\u3164\u200B\u200C\u200D\u2060]/g
+    const text = comment
+    .replace(regex, '')
+    .trim();
     if (!Number.isInteger(score) || score < 1 || score > 5 || !text || text.length > 1000) {
       setSubmitError('Choose a rating and write a comment of 1–1,000 characters.');
       return;
