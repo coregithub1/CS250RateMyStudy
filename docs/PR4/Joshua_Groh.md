@@ -3,7 +3,7 @@
 ## Issue 1: Comment Limit of 2
 
 Issue: https://github.com/coregithub1/CS250RateMyStudy/issues/80
-Pull Request: 
+Pull Request: https://github.com/coregithub1/CS250RateMyStudy/pull/87
 
 Classification: The issue is a code bug, as it is not currently equipped to handle limits.
 
