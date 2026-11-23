@@ -45,4 +45,4 @@ Joshua: Review updates, being able to remove reviews
 ![Board Screenshot](/docs/PR4/screenshots/board.png)
 
 # Sprint Summary
-We had difficulty finding bugs for this project, which is very small in scope. As a result, the fixes were not too difficult to implement and were done fast. 
+Across this sprint, the absolute hardest thing was picking out bugs. It was utterly difficult to find as much as we have here, but we can thorughly say that we tested and updated issues revolving hardcoded environment variables, invisibile characters via Unicode, and review submission limits. By the end of the sprint all old Playwright tests still worked as before, and the new vitest tests run end-to-end!
