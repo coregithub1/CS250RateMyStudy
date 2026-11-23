@@ -1,6 +1,6 @@
 # Joshua Groh
 
-## Issue 1: Comment Limit of 2
+## Issue 80: Comment Limit of 2
 
 Issue: https://github.com/coregithub1/CS250RateMyStudy/issues/80
 Pull Request: https://github.com/coregithub1/CS250RateMyStudy/pull/87

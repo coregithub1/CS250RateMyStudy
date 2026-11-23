@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-## Group 3
-## Names : Joshua Groh,
-
-## Bug Triage Table
-Test name | Bucket | Issue link | Severity | Priority | Owner | Status
-TC-4      |        |  https://github.com/coregithub1/CS250RateMyStudy/issues/80      Minor    | Low      | Joshua| Pass
-
-## Regression Log
-
-## Final Test Run
-
-## Feature Decision
-
-## Board Snapshot
-
-## Sprint Summary
-=======
 # Team Members
 - Adam Mohamed
 - Joshua Groh
@@ -27,7 +9,7 @@ TC-4      |        |  https://github.com/coregithub1/CS250RateMyStudy/issues/80 
 |---|---|---|---|---|---|---|
 | Supabase works with no environment variables passed | Code Bug | https://github.com/coregithub1/CS250RateMyStudy/issues/84 | Medium | Medium | Adam | Fixed |
 | Invisible characters can be submitted | Code Bug | https://github.com/coregithub1/CS250RateMyStudy/issues/85 | Low | Medium | Adam | Fixed |
-| | | | | | | | |
+| Comment Limit of 2 | Code Bug | https://github.com/coregithub1/CS250RateMyStudy/issues/80 | Low | Low | Joshua | Fixed |
 | | | | | | | | |
 | | | | | | | | |
 | | | | | | | | |
@@ -41,6 +23,7 @@ The fix is simple, I removed the type check so JS would stop throwing ReferenceE
 Issue is https://github.com/coregithub1/CS250RateMyStudy/issues/88
 
 # Final Test Run
+No issues, screenshot included
 
 # Feature Decision
 ### User story
@@ -49,12 +32,14 @@ As a user, I want the functionality of making reviews as a real user and applyin
 This improves the entirety of the application as reviews can be updated, removed, and you can see peoples account history for other reviews they might've made.
 
 ### Who owns which part
+Joshua: Review updates, being able to remove reviews
 
 ### Tests
 1. TC-1 | A user can register a account | The user will be able to register for an account,recieve a generated username
 2. TC-2 | Every user will have their own profile page | The user will be able to visit a /u/[slug] page where they can see someone page and reviews
 
 # Board Snapshot
+included in screenshots
 
 # Sprint Summary
->>>>>>> ffc45b37ec10054d8bff1291a1159fc0dc6b040e
+We had difficulty finding bugs for this project, which is very small in scope. As a result, the fixes were not too difficult to implement and were done fast. 
