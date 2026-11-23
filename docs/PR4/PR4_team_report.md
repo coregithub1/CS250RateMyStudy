@@ -17,13 +17,15 @@
 | | | | | | | | |
 
 # Regression Log
-### A fix broke CI without me noticing - Adam Mohamed
-This is extremely developer error. Im so used to type notation that I tried to add a string type check without realizing this is javascript.
-The fix is simple, I removed the type check so JS would stop throwing ReferenceError, which is weird because it worked in dev but not that CI.
-Issue is https://github.com/coregithub1/CS250RateMyStudy/issues/88
+Not a single old test broke from us adding new fixes or tweaking the current code!.
+Ran the full suite on: Nov 19th, 20th, 22nd
 
 # Final Test Run
-Failing tests were written by previous team, no actual issues remaining
+
+Ran Nov 22, 8:49pm, 
+![Playwright success](screenshots/final_test_playwright.png)
+![Vitest success](screenshots/final_test_vitest.png)
+All tests old and new all succeed.
 
 # Feature Decision
 ### User story
@@ -32,6 +34,7 @@ As a user, I want the functionality of making reviews as a real user and applyin
 This improves the entirety of the application as reviews can be updated, removed, and you can see peoples account history for other reviews they might've made.
 
 ### Who owns which part
+Adam: Account logic
 Joshua: Review updates, being able to remove reviews
 
 ### Tests
@@ -39,7 +42,7 @@ Joshua: Review updates, being able to remove reviews
 2. TC-2 | Every user will have their own profile page | The user will be able to visit a /u/[slug] page where they can see someone page and reviews
 
 # Board Snapshot
-included in screenshots
+![Board Screenshot](/docs/PR4/screenshots/board.png)
 
 # Sprint Summary
 We had difficulty finding bugs for this project, which is very small in scope. As a result, the fixes were not too difficult to implement and were done fast. 
