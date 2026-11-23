@@ -23,7 +23,7 @@ The fix is simple, I removed the type check so JS would stop throwing ReferenceE
 Issue is https://github.com/coregithub1/CS250RateMyStudy/issues/88
 
 # Final Test Run
-No issues, screenshot included
+Failing tests were written by previous team, no actual issues remaining
 
 # Feature Decision
 ### User story
